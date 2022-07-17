@@ -1,0 +1,24 @@
+## A quick demo play for your own data using our pre-trained model, no need to download datasets
+GENERAL:
+  GPU_ID: 2
+  SEED: 123
+  WORKER: 8
+  SAVE_PREFIX: './demo_dir/uhdm'
+  EXP_NAME: 'exp'
+
+DATA:
+  DEMO_DATASET: /data_ssd/hku_image_gp/4K_MOIRE/test # Insert the root of your moire images
+
+MODEL:
+  EN_FEATURE_NUM: 48
+  EN_INTER_NUM: 32
+  DE_FEATURE_NUM: 64
+  DE_INTER_NUM: 32
+  SAM_NUMBER: 2 # Note this value needs to be consistent with the pre-trained model! i.e., 1 for ESDNet and 2 for ESDNet-L
+
+TEST:
+  SAVE_IMG: jpg # The file type (e.g., png, jpg) for saving the output image; set False to avoid saving
+  LOAD_PATH: './pretrain_model/uhdm_large_checkpoint.pth' # Specify the checkpoint path
+
+
+
