@@ -22,7 +22,8 @@ we deliver a plug-and-play semantic-aligned scale-aware module which helps us to
 model for tackling 4K moire images. Our framework is easy to implement and fast for inference, achieving state-of-the-art 
 results on four demoireing datasets while being much more lightweight. 
 We hope our investigation could inspire more future research in this more practical setting in image demoireing.
-![Example 1](./figures/cost.png)
+
+![Cost](./figures/cost.png){:height="60%" width="60%"}
 
 ## Environments
 
@@ -36,7 +37,7 @@ conda activate esdnet
 Our implementation has been tested on one NVIDIA 3090 GPU with cuda 11.2.
 
 ## Dataset
-![Example 1](./figures/dataset.png)
+![Data](./figures/dataset.png)
 We provide the 4K dataset UHDM for you to evaluate a pretrained model or train a new model.
 To this end, you can download them [here](https://drive.google.com/drive/folders/1DyA84UqM7zf3CeoEBNmTi_dJ649x2e7e?usp=sharing), 
 or you can simply run the following command for automatic data downloading:
