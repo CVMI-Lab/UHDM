@@ -23,7 +23,7 @@ model for tackling 4K moire images. Our framework is easy to implement and fast 
 results on four demoireing datasets while being much more lightweight. 
 We hope our investigation could inspire more future research in this more practical setting in image demoireing.
 
-![Cost](./figures/cost.png){:height="60%" width="60%"}
+<img src="./figures/cost.png" width="50%" ></img>
 
 ## Environments
 
