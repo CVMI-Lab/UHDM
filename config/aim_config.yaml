@@ -28,7 +28,7 @@ TRAIN:
   LAM_P: 1 # The loss weight for perceptual loss
 
 TEST:
-  TEST_EPOCH: 200 # Input 'auto' for loading the latest model
+  TEST_EPOCH: 150 # Input 'auto' for loading the latest model
   SAVE_IMG: False # The file type (e.g., jpg, png) for saving the output image; set False to avoid saving
   LOAD_PATH: False # If specify a load path for a checkpoint, TEST_EPOCH will be deprecated
   EVALUATION_METRIC: True # If True, calculate metrics
@@ -36,7 +36,7 @@ TEST:
   EVALUATION_COST: False #If True, calculate MACs and Parameters number
 
 SOLVER:
-  EPOCHS: 300 # The total training epochs
+  EPOCHS: 150 # The total training epochs
   T_0: 50 # The total epochs for the first learning cycle (learning rate warms up then)
   T_MULT: 1 # The learning cycle would be (T_0, T_0*T_MULT, T_0*T_MULT^2, T_0*T_MULT^3, ...)
   ETA_MIN: 0.000001 # Initial learning rate in each learning cycle
