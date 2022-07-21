@@ -54,7 +54,7 @@ Once you have installed all dependencies, you can try a quick test without downl
 ### 1. Download our pre-trained models:
 We provide pre-trained models on four datasets, which can be downloaded through the following links:
 | **Model Name** |  **Training Dataset** | **Download Link** |
-| :---------: |  :---------: | :----------: | :---------------: |
+| :---------: |  :---------: | :---------------: |
 |    ESDNet  |   UHDM  | [uhdm_checkpoint.pth](https://drive.google.com/file/d/1HT_ubcAYRqzFIJ46XuPhrulJk2YFBIEl/view?usp=sharing) |
 |    ESDNet-L  |   UHDM  | [uhdm_large_checkpoint.pth](https://drive.google.com/file/d/1PyCLCytsu4F8gEk_04a8Qs7pcsHazAie/view?usp=sharing) |
 |    ESDNet  |   FHDMi  | [fhdmi_checkpoint.pth](https://drive.google.com/file/d/19GaA5F7aTUUrgZig4qlR8ISe23mPc8m_/view?usp=sharing) |
