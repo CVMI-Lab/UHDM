@@ -1,30 +1,39 @@
-# Towards Efficient and Scale-Robust Ultra-High-Definition Image Demoireing
+# Towards Efficient and Scale-Robust Ultra-High-Definition Image Demoiréing
+
+### [Project Page](https://xinyu-andy.github.io/uhdm-page/) | [Dataset](https://drive.google.com/drive/folders/1DyA84UqM7zf3CeoEBNmTi_dJ649x2e7e?usp=sharing) | [Paper](https://arxiv.org/pdf/2207.09935)
 
 **Towards Efficient and Scale-Robust Ultra-High-Definition Image Demoireing** (ECCV 2022)  
-Xin Yu, Peng Dai, Wenbo Li, Lan Ma, Jiajun Shen, Jia Li, [Xiaojuan Qi](https://scholar.google.com/citations?user=bGn0uacAAAAJ&hl=en).
-<br>[Paper(Coming soon)](-), [Project Page](https://xinyu-andy.github.io/uhdm-page/), [Dataset](https://drive.google.com/drive/folders/1DyA84UqM7zf3CeoEBNmTi_dJ649x2e7e?usp=sharing)
+Xin Yu, Peng Dai, Wenbo Li, Lan Ma, Jiajun Shen, Jia Li, [Xiaojuan Qi](https://scholar.google.com/citations?user=bGn0uacAAAAJ&hl=en)
 
 ![Example 1](./figures/result.png)
+
+## :hourglass_flowing_sand: To Do
+- [x] Release training code
+- [x] Release testing code
+- [x] Release dataset
+- [x] Release pre-trained models
+- [ ] Release an improved model trained on combined datasets
+
 
 ## Introduction
 When photographing the contents displayed on the digital screen, an inevitable frequency aliasing between the camera’s 
 color filter array (CFA) and the screen’s LCD subpixel widely exists. The captured images are thus mixed with colorful 
 stripes, named moire patterns, which severely degrade images’ perceptual qualities. Although a plethora of dedicated 
-demoire methods have been proposed in the research community recently, yet is still far from achieving promising results 
+demoiré methods have been proposed in the research community recently, yet is still far from achieving promising results 
 in the real-world scenes. The key limitation of these methods is that they all only conduct research on low-resolution or 
 synthetic images. However, with the rapid development of mobile devices, modern widely-used mobile phones typically allow 
 users to capture 4K resolution (i.e.,ultra-high-definition) images, and thus the effectiveness of these methods on this
 practical scenes is not promised. In this work, we explore moire pattern removal for ultra-high-definition images. 
-First, we propose the first ultra-high-definition demoireing dataset (UHDM), which contains 5,000 real-world 4K 
+First, we propose the first ultra-high-definition demoiréing dataset (UHDM), which contains 5,000 real-world 4K 
 resolution image pair, and conduct a benchmark study on the current state of the art. Then, we analyze limitations 
 of the state of the art and summarize the key issue of them, i.e., not scale-robust. To address their deficiencies, 
 we deliver a plug-and-play semantic-aligned scale-aware module which helps us to build a frustratingly simple baseline 
 model for tackling 4K moire images. Our framework is easy to implement and fast for inference, achieving state-of-the-art 
-results on four demoireing datasets while being much more lightweight. 
-We hope our investigation could inspire more future research in this more practical setting in image demoireing.
+results on four demoiréing datasets while being much more lightweight. 
+We hope our investigation could inspire more future research in this more practical setting in image demoiréing.
 
 
-<img src="./figures/cost.png" width="55%" ></img>
+<p align="center"><img src="./figures/cost.png" width="55%" ></p>
 
 
 ## Environments
@@ -37,6 +46,40 @@ conda activate esdnet
 ```
 
 Our implementation has been tested on one NVIDIA 3090 GPU with cuda 11.2.
+
+## Quick Test
+
+Once you have installed all dependencies, you can try a quick test without downloading training dataset:
+
+### 1. Download our pre-trained models:
+We provide pre-trained models on four datasets, which can be downloaded through the following links:
+| **Model Name** |  **Training Dataset** | **Download Link** |
+| :---------: |  :---------: | :----------: | :---------------: |
+|    ESDNet  |   UHDM  | [uhdm_checkpoint.pth](https://drive.google.com/file/d/1HT_ubcAYRqzFIJ46XuPhrulJk2YFBIEl/view?usp=sharing) |
+|    ESDNet-L  |   UHDM  | [uhdm_large_checkpoint.pth](https://drive.google.com/file/d/1PyCLCytsu4F8gEk_04a8Qs7pcsHazAie/view?usp=sharing) |
+|    ESDNet  |   FHDMi  | [fhdmi_checkpoint.pth](https://drive.google.com/file/d/19GaA5F7aTUUrgZig4qlR8ISe23mPc8m_/view?usp=sharing) |
+|    ESDNet-L |   FHDMi  | [fhdmi_large_checkpoint.pth](https://drive.google.com/file/d/1Fwx0b2jJHgx4cgqrd8d_4er2UGYbZO0s/view?usp=sharing) |
+|    ESDNet |   TIP2018  | [tip_checkpoint.pth](https://drive.google.com/file/d/1CcYDakV9r6sZTsJvdkzC-uutAlOrexW8/view?usp=sharing) |
+|    ESDNet-L  |   TIP2018  | [tip_large_checkpoint.pth](https://drive.google.com/file/d/1oqmpBM-3gDwEKRMKoS6cKT0-3_EzBPAf/view?usp=sharing) |
+|    ESDNet |   LCDMoire  | [aim_checkpoint.pth](https://drive.google.com/file/d/1WWFz-BYpW9QAwGGSy7hVPSDNT0DARnhZ/view?usp=sharing) |
+|    ESDNet-L |   LCDMoire  | [aim_large_checkpoint.pth](https://drive.google.com/file/d/114EDQnJ0AUEGiXFmA9Hiwj_m7sj1KyNW/view?usp=sharing) |
+
+Or you can simply run the following command for automatic downloading:
+
+```
+bash scripts/download_model.sh
+```
+
+Then the checkpoints will be included in the folder `pretrain_model/`. 
+
+### 2. Test with your own images:
+Change the configuration file `./demo_config/demo.yaml` to fit your own setting, and then simply run:
+
+```
+python demo_test.py --config ./demo_config/demo.yaml
+```
+
+the output images will be included in the path depending on the flags `SAVE_PREFIX` and `EXP_NAME` in your configuration file. 
 
 ## Dataset
 ![Data](./figures/dataset.png)
@@ -73,14 +116,10 @@ python test.py --config CONFIG.yaml
 where you need to specify the value of `TEST_EPOCH` in the `CONFIG.yaml` to evaluate a model trained after specific epochs, 
 or you can also specify the value of `LOAD_PATH` to directly load a pre-trained checkpoint.
 
-We provide pre-trained models [here](https://drive.google.com/drive/folders/12buOOBKDBdQ65gM8U1rRNpSHppQ_u9Lr?usp=sharing). 
-To download the checkpoints, you can also simply run:
+## Results
 
-```
-bash scripts/download_model.sh
-```
-
-Then the checkpoints will be included in the folder `pretrain_model/`. 
+### Quantitative Results:
+<p align="center"> <img src="./figures/quantitative_results.png" width="100%"> </p>
 
 
 ## Contact
