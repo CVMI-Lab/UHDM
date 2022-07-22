@@ -121,6 +121,27 @@ or you can also specify the value of `LOAD_PATH` to directly load a pre-trained 
 ### Quantitative Results:
 <p align="center"> <img src="./figures/quantitative_results.png" width="100%"> </p>
 
+## Extended link:
+If you want to remove moire patterns in your video, you can try our CVPR 2022 work: [VDMoire](https://github.com/CVMI-Lab/VideoDemoireing)
+
+## Citation
+Please cite the following papers if you feel this repository useful.
+
+```
+@inproceedings{Yu2022TowardsEA,
+  title={Towards Efficient and Scale-Robust Ultra-High-Definition Image Demoireing},
+  author={Xin Yu and Peng Dai and Wenbo Li and Lan Ma and Jiajun Shen and Jia Li and Xiaojuan Qi},
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2022}
+}
+
+@inproceedings{dai2022video,
+  title={Video Demoireing with Relation-Based Temporal Consistency},
+  author={Dai, Peng and Yu, Xin and Ma, Lan and Zhang, Baoheng and Li, Jia and Li, Wenbo and Shen, Jiajun and Qi, Xiaojuan},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2022}
+}
+```
 
 ## Contact
 If you have any questions, you can email me (yuxin27g@gmail.com).
