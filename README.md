@@ -19,7 +19,7 @@ Xin Yu, Peng Dai, Wenbo Li, Lan Ma, Jiajun Shen, Jia Li, [Xiaojuan Qi](https://s
 - [x] Add an online demo :hugs:
 
 ## :rocket:  :rocket:  :rocket: **News**:
-- **July. 31, 2022**: Add an online demo in [HuggingFace Space :hugs:](https://huggingface.co/spaces/ECCV2022/Screen_Image_Demoireing), which allows testing via an interactive window. Note the demo runs on CPU, so the inference may cost 80s per 4K image. The demo model was trained on combined datasets for more robust qualitative performance.
+- **Jul. 31, 2022**: Add an online demo in [HuggingFace Space :hugs:](https://huggingface.co/spaces/ECCV2022/Screen_Image_Demoireing), which allows testing via an interactive window. Note the demo runs on CPU, so the inference may cost 80s per 4K image. The demo model was trained on combined datasets for more robust qualitative performance.
 
 
 ## Introduction
