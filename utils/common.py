@@ -175,18 +175,18 @@ def calculate_cost(model, input_size=(1,3,224,224)):
     macs, params = clever_format([macs, params], "%.3f")
     logging.warning("MACs:" + macs + ", Params:" + params)
 
-def img_pad(x, h_r=0, w_r=0):
+def img_pad(x, w_pad, h_pad, w_odd_pad, h_odd_pad):
     '''
     Here the padding values are determined by the average r,g,b values across the training set
     in FHDMi dataset. For the evaluation on the UHDM, you can also try the commented lines where
     the mean values are calculated from UHDM training set, yielding similar performance.
     '''
-    x1 = F.pad(x[:, 0:1, ...], (w_r, w_r, h_r, h_r), value=0.3827)
-    x2 = F.pad(x[:, 1:2, ...], (w_r, w_r, h_r, h_r), value=0.4141)
-    x3 = F.pad(x[:, 2:3, ...], (w_r, w_r, h_r, h_r), value=0.3912)
-    # x1 = F.pad(x[:,0:1,...], (w_r,w_r,h_r,h_r), value = 0.5165)
-    # x2 = F.pad(x[:,1:2,...], (w_r,w_r,h_r,h_r), value = 0.4952)
-    # x3 = F.pad(x[:,2:3,...], (w_r,w_r,h_r,h_r), value = 0.4695)
+    x1 = F.pad(x[:, 0:1, ...], (w_pad, w_odd_pad, h_pad, h_odd_pad), value=0.3827)
+    x2 = F.pad(x[:, 1:2, ...], (w_pad, w_odd_pad, h_pad, h_odd_pad), value=0.4141)
+    x3 = F.pad(x[:, 2:3, ...], (w_pad, w_odd_pad, h_pad, h_odd_pad), value=0.3912)
+    # x1 = F.pad(x[:, 0:1, ...], (w_pad, w_odd_pad, h_pad, h_odd_pad), value = 0.5165)
+    # x2 = F.pad(x[:, 1:2, ...], (w_pad, w_odd_pad, h_pad, h_odd_pad), value = 0.4952)
+    # x3 = F.pad(x[:, 2:3, ...], (w_pad, w_odd_pad, h_pad, h_odd_pad), value = 0.4695)
     y = torch.cat([x1, x2, x3], dim=1)
 
     return y

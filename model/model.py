@@ -24,16 +24,23 @@ def model_fn_decorator(loss_fn, device, mode='train'):
         # pad image such that the resolution is a multiple of 32
         w_pad = (math.ceil(w/32)*32 - w) // 2
         h_pad = (math.ceil(h/32)*32 - h) // 2
-        in_img = img_pad(in_img, w_r=w_pad, h_r=h_pad)
+        w_odd_pad = w_pad
+        h_odd_pad = h_pad
+        if w % 2 == 1:
+            w_odd_pad += 1
+        if h % 2 == 1:
+            h_odd_pad += 1
+
+        in_img = img_pad(in_img, w_pad=w_pad, h_pad=h_pad, w_odd_pad=w_odd_pad, h_odd_pad=h_odd_pad)
 
         with torch.no_grad():
             st = time.time()
             out_1, out_2, out_3 = model(in_img)
             cur_time = time.time()-st
             if h_pad != 0:
-               out_1 = out_1[:, :, h_pad:-h_pad, :]
+               out_1 = out_1[:, :, h_pad:-h_odd_pad, :]
             if w_pad != 0:
-               out_1 = out_1[:, :, :, w_pad:-w_pad]
+               out_1 = out_1[:, :, :, w_pad:-w_odd_pad]
 
         if args.EVALUATION_METRIC:
             cur_lpips, cur_psnr, cur_ssim = compute_metrics.compute(out_1, label)
