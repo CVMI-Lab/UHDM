@@ -1,18 +1,25 @@
 # Towards Efficient and Scale-Robust Ultra-High-Definition Image Demoiréing
 
 ### [Project Page](https://xinyu-andy.github.io/uhdm-page/) | [Dataset](https://drive.google.com/drive/folders/1DyA84UqM7zf3CeoEBNmTi_dJ649x2e7e?usp=sharing) | [Paper](https://arxiv.org/pdf/2207.09935)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/towards-efficient-and-scale-robust-ultra-high/image-restoration-on-uhdm)](https://paperswithcode.com/sota/image-restoration-on-uhdm?p=towards-efficient-and-scale-robust-ultra-high)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/towards-efficient-and-scale-robust-ultra-high/image-enhancement-on-tip-2018)](https://paperswithcode.com/sota/image-enhancement-on-tip-2018?p=towards-efficient-and-scale-robust-ultra-high)
 
 **Towards Efficient and Scale-Robust Ultra-High-Definition Image Demoireing** (ECCV 2022)  
 Xin Yu, Peng Dai, Wenbo Li, Lan Ma, Jiajun Shen, Jia Li, [Xiaojuan Qi](https://scholar.google.com/citations?user=bGn0uacAAAAJ&hl=en)
 
 ![Example 1](./figures/result.png)
+![Gif 1](./figures/1080p.gif)
 
 ## :hourglass_flowing_sand: To Do
 - [x] Release training code
 - [x] Release testing code
 - [x] Release dataset
 - [x] Release pre-trained models
-- [ ] Release an improved model trained on combined datasets
+- [x] Release an improved model trained on combined datasets
+- [x] Add an online demo :hugs:
+
+## :rocket:  :rocket:  :rocket: **News**:
+- **Jul. 31, 2022**: Add an online demo in [HuggingFace Space :hugs:](https://huggingface.co/spaces/ECCV2022/Screen_Image_Demoireing), which allows testing via an interactive window. Note the demo runs on CPU, so the inference may cost 80s per 4K image. The demo model was trained on combined datasets for more robust qualitative performance.
 
 
 ## Introduction
@@ -123,9 +130,10 @@ or you can also specify the value of `LOAD_PATH` to directly load a pre-trained 
 
 ## Extended link:
 If you want to remove moire patterns in your video, you can try our CVPR 2022 work: [VDMoire](https://github.com/CVMI-Lab/VideoDemoireing)
+![vdmoire](./figures/vdmoire.gif)
 
 ## Citation
-Please cite the following papers if you feel this repository useful.
+Please consider :grimacing: staring this repository and citing the following papers if you feel this repository useful.
 
 ```
 @inproceedings{Yu2022TowardsEA,
