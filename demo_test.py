@@ -103,14 +103,21 @@ def test_model_fn(args, data, model, save_path, device):
     # pad image such that the resolution is a multiple of 32
     w_pad = (math.ceil(w/32)*32 - w) // 2
     h_pad = (math.ceil(h/32)*32 - h) // 2
-    in_img = img_pad(in_img, w_r=w_pad, h_r=h_pad)
+    w_odd_pad = w_pad
+    h_odd_pad = h_pad
+    if w % 2 == 1:
+        w_odd_pad += 1
+    if h % 2 == 1:
+        h_odd_pad += 1
+
+    in_img = img_pad(in_img, w_pad=w_pad, h_pad=h_pad, w_odd_pad=w_odd_pad, h_odd_pad=h_odd_pad)
 
     with torch.no_grad():
         out_1, out_2, out_3 = model(in_img)
         if h_pad != 0:
-           out_1 = out_1[:, :, h_pad:-h_pad, :]
+            out_1 = out_1[:, :, h_pad:-h_odd_pad, :]
         if w_pad != 0:
-           out_1 = out_1[:, :, :, w_pad:-w_pad]
+            out_1 = out_1[:, :, :, w_pad:-w_odd_pad]
 
     # save images
     if args.SAVE_IMG:
@@ -126,7 +133,7 @@ def create_demo_dataset(
         for home, dirs, files in os.walk(data_dir):
             for filename in files:
                 ext = filename.split(".")[-1]
-                if ext.lower() in ["jpg", "jpeg", "png", "gif", "webp"] and filename[-5]=='e':
+                if ext.lower() in ["jpg", "jpeg", "png", "gif", "webp"]:
                     file_list.append(os.path.join(home, filename))
         file_list.sort()
         return file_list
