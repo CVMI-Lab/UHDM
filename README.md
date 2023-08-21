@@ -136,11 +136,13 @@ If you want to remove moire patterns in your video, you can try our CVPR 2022 wo
 Please consider :grimacing: staring this repository and citing the following papers if you feel this repository useful.
 
 ```
-@inproceedings{Yu2022TowardsEA,
-  title={Towards Efficient and Scale-Robust Ultra-High-Definition Image Demoireing},
-  author={Xin Yu and Peng Dai and Wenbo Li and Lan Ma and Jiajun Shen and Jia Li and Xiaojuan Qi},
-  booktitle={European Conference on Computer Vision (ECCV)},
-  year={2022}
+@inproceedings{yu2022towards,
+  title={Towards efficient and scale-robust ultra-high-definition image demoir{\'e}ing},
+  author={Yu, Xin and Dai, Peng and Li, Wenbo and Ma, Lan and Shen, Jiajun and Li, Jia and Qi, Xiaojuan},
+  booktitle={European Conference on Computer Vision},
+  pages={646--662},
+  year={2022},
+  organization={Springer}
 }
 
 @inproceedings{dai2022video,
